@@ -1,0 +1,3 @@
+#/bin/bash
+echo "$1" | nkf -WwMQ | tr = %
+

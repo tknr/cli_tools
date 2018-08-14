@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $1 | nkf -w --url-input
