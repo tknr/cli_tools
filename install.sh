@@ -4,6 +4,7 @@ mkdir -p ~/bin
 ln -s `pwd`/google ~/bin/
 ln -s `pwd`/urlencode ~/bin/
 ln -s `pwd`/urldecode ~/bin/
+ln -s `pwd`/viewmd ~/bin/
 
 export_count=`cat ~/.bash_profile | grep 'export PATH="$HOME/bin:$PATH"' | wc -l`
 echo $export_count
