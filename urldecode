@@ -5,7 +5,7 @@ CMDNAME=`basename $0`
 
 ##
 usage_exit(){
-        echo "Usage : ${CMDNAME} [textfile]"
+        echo "Usage : ${CMDNAME} [string | -f textfile]"
         exit 1
 }
 
@@ -13,4 +13,20 @@ if [ $# -eq 0 ] ; then
         usage_exit
 fi
 
-cat $1 | nkf -w --url-input
+READ_TEXTFILE=false
+
+## http://takuya-1st.hatenablog.jp/entry/2015/12/24/234238
+while getopts "f:" OPT ; do
+        case $OPT in
+                f)
+                        READ_TEXTFILE=true
+			TEXTFILE=$OPTARG
+                ;;
+        esac
+done
+
+if "${READ_TEXTFILE}" ; then
+	cat $TEXTFILE | nkf -w --url-input
+else
+	echo $1 | nkf -w --url-input
+fi
