@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 export IFS=$'\n'
 CMDNAME=`basename $0`
 
@@ -24,6 +24,7 @@ while getopts "f:" OPT ; do
         esac
 done
 
+## https://qiita.com/ik-fib/items/cc983ca34600c2d633d5
 if "${READ_TEXTFILE}" ; then
         cat $TEXTFILE | nkf -WwMQ | tr = % | tr -d '\n'
 else
