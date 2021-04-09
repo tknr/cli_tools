@@ -1,2 +1,16 @@
 #!/bin/bash
-echo $1 | nkf -w --url-input
+export IFS=$'\n'
+
+CMDNAME=`basename $0`
+
+##
+usage_exit(){
+        echo "Usage : ${CMDNAME} [textfile]"
+        exit 1
+}
+
+if [ $# -eq 0 ] ; then
+        usage_exit
+fi
+
+cat $1 | nkf -w --url-input
