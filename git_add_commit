@@ -1,0 +1,5 @@
+#!/bin/bash
+export IFS=$'\n'
+git add --all -v || exit 1
+git commit || exit 1
+

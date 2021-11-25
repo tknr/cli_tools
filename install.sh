@@ -2,9 +2,11 @@
 cd `dirname $0`
 
 mkdir -p ~/bin
+ln -s `pwd`/git_add_commit ~/bin/
+ln -s `pwd`/git_add_commit_push ~/bin/
 ln -s `pwd`/google ~/bin/
-ln -s `pwd`/urlencode ~/bin/
 ln -s `pwd`/urldecode ~/bin/
+ln -s `pwd`/urlencode ~/bin/
 ln -s `pwd`/viewmd ~/bin/
 
 export_count=`cat ~/.bash_profile | grep 'export PATH="$HOME/bin:$PATH"' | wc -l`
