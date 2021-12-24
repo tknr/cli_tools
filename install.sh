@@ -8,6 +8,7 @@ ln -s `pwd`/google ~/bin/
 ln -s `pwd`/urldecode ~/bin/
 ln -s `pwd`/urlencode ~/bin/
 ln -s `pwd`/viewmd ~/bin/
+ln -s `pwd`/unar_all ~/bin/
 
 export_count=`cat ~/.bash_profile | grep 'export PATH="$HOME/bin:$PATH"' | wc -l`
 echo $export_count
