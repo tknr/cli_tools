@@ -1,0 +1,32 @@
+#!/bin/bash
+export IFS=$'\n'
+CMDNAME=`basename $0`
+
+##
+usage_exit(){
+        echo "Usage : ${CMDNAME} [string | -f textfile]"
+        exit 1
+}
+
+if [ $# -eq 0 ] ; then
+        usage_exit
+fi
+
+READ_TEXTFILE=false
+
+## http://takuya-1st.hatenablog.jp/entry/2015/12/24/234238
+while getopts "f:" OPT ; do
+        case $OPT in
+                f)
+                        READ_TEXTFILE=true
+                        TEXTFILE=$OPTARG
+                ;;
+        esac
+done
+
+## https://orebibou.com/ja/home/201906/20190625_001/
+if "${READ_TEXTFILE}" ; then
+        cat $TEXTFILE | perl -C -ple 'use utf8;s/[^\p{BasicLatin}|\p{Katakana}|\p{Hiragana}|\p{Han}|\p{CJKSymbolsAndPunctuation}|\p{HalfwidthAndFullwidthForms}]//g'
+else
+        echo $1 | perl -C -ple 'use utf8;s/[^\p{BasicLatin}|\p{Katakana}|\p{Hiragana}|\p{Han}|\p{CJKSymbolsAndPunctuation}|\p{HalfwidthAndFullwidthForms}]//g'
+fi
