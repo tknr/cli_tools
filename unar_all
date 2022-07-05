@@ -4,6 +4,6 @@ CURRENT_DIR=`pwd`
 for file in `find . -iname "*.zip" -o -iname "*.rar"`
 do
         echo ${file}
-	unar ${file} || continue
+	unar -f -t ${file} || continue
 done
 
