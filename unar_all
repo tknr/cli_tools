@@ -37,7 +37,7 @@ shift $(($OPTIND - 1))
 for file in `find "${TARGET_DIR}" -iname "*.zip" -o -iname "*.rar"`
 do
 	unar -f -t ${file} || continue
-	if [ $REMOVE_FLAG ]; then
+	if "${REMOVE_FLAG}"; then
 		rm -f ${file}
 	fi
 done
