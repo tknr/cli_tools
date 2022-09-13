@@ -1,0 +1,5 @@
+#!/bin/bash
+export IFS=$'\n'
+for file in `find . -type f`;do
+  mv -v ${file} `remove_emoji ${file}`
+done
